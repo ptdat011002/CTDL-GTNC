@@ -70,16 +70,17 @@ void BubbleSort_2(sv *a,int n)
 				swap(a[j], a[j+1]);
 }
 
-void InsertionSort(sv *a, int n ){ 
-    int pos, i;
-    int x;
-    for(i=1 ; i<n ; i++){
-       x = a[i].masv; pos = i-1;
-       while((pos >= 0)&&(a[pos].masv > x)){
-            a[pos+1].masv = a[pos].masv;
+void InserttionSort(sv *a, int n ){ 
+    int pos;
+    sv x;
+    for(int i=1 ; i<n ; i++){
+       x = a[i]; 
+	   pos = i-1;
+       while((pos >= 0)&&(a[pos].masv > x.masv)){
+            a[pos+1] = a[pos];
             pos--;
        }
-       a[pos+1].masv = x;
+       a[pos+1] = x;
    }
 }
 void QuickSort(sv *a,int left, int right){
@@ -116,7 +117,7 @@ int main(){
 	//SelectionSort(a,n);
 	//BubbleSort(a,n);
 	//BubbleSort_2(a,n);
-	//InsertionSort(a,n);
+	//InserttionSort(a,n);
 	QuickSort(a,0,n-1);
 	cout << "Danh sach sinh vien sau khi sap xep : " << endl;
 	xuat(a,n);
